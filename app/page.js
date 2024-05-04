@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { mainLogo, aboutImg } from "./images";
-import Button from "@/Components/Button";
+// import Button from "@/Components/Button";
 
 
 export default function Home() {
@@ -21,8 +21,8 @@ export default function Home() {
           <p className="italic font-medium">“Every drop matters. Be a hero.”</p>
         </div>
         <div className="buttons flex gap-4">
-          <Button href="/beADonor" text="I'm a Donor"/>
-          <Button href="/searchForDonors" text="I'm a Recipient"/>
+          {/* <Button  text="I'm a Donor"/>
+          <Button text="I'm a Recipient"/> */}
         </div>
         
       </section>
