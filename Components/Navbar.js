@@ -7,11 +7,13 @@ import { logo } from "../app/images";
 import { LoginLink, LogoutLink } from "@kinde-oss/kinde-auth-nextjs/components";
 import { useKindeBrowserClient } from "@kinde-oss/kinde-auth-nextjs";
 import LoggedInDropDown from "./LoggedInDropDown";
+import Button from "./Button";
+
 
 const Navbar = () => {
   const [nav, setNav] = useState(false);
   const { isAuthenticated, isLoading,user } = useKindeBrowserClient();
-  console.log(user)
+ 
   const links = [
     {
       id: 1,
@@ -19,16 +21,21 @@ const Navbar = () => {
       link: "/",
     },
 
+    // {
+    //   id: 2,
+    //   title: "find",
+    //   link: "/searchForDonors",
+    // },
+    // {
+    //   id: 3,
+    //   title: "Donate",
+    //   link: "/beADonor",
+    // },
     {
-      id: 2,
-      title: "find",
-      link: "/searchForDonors",
-    },
-    {
-      id: 3,
-      title: "Donate",
-      link: "/beADonor",
-    },
+        id: 4,
+        title: "Contact",
+        link: "#contact",
+      },
   ];
 
   return (
@@ -45,28 +52,30 @@ const Navbar = () => {
         </Link>
       </div>
 
-      <ul className="hidden md:flex">
+      <ul className="hidden md:flex md:items-center">
         {links.map(({ id, link, title }) => (
           <li
             key={id}
-            className="nav-links px-4 cursor-pointer capitalize  flex items-center justify-center font-medium   text-black hover:scale-105 hover:text-[#ef233c] duration-200 link-underline"
+            className="nav-links mx-6 cursor-pointer capitalize  flex items-center justify-center font-medium   text-black hover:scale-105 hover:text-[#ef233c] duration-200 link-underline"
           >
             <Link href={link}>{title}</Link>
           </li>
         ))}
-        {!isAuthenticated ? (
-          <LoginLink>
-            <button
-              type="button"
-              className="text-white bg-[#ef233c] focus:outline-none focus:ring-4  font-medium rounded-full text-sm px-5 py-2.5 text-center "
-            >
-              Sign in
-            </button>
+       
+      {!isAuthenticated ?(
+            <LoginLink>
+            <Button text={"Sign in"}/>
           </LoginLink>
+            
+          
         ) : (
-          <LoggedInDropDown  email={user.email} Name={user.given_name} src={user.picture} />
+            <div className="gap-x-4 flex items-center">
+            <LoggedInDropDown  email={user.email} Name={user.given_name} src={user.picture} lastName={user.family_name} />
+                  
+            </div>
         )}
       </ul>
+      
 
       <div
         onClick={() => setNav(!nav)}
@@ -81,11 +90,11 @@ const Navbar = () => {
 
       {nav && (
         <div className="absolute top-0 z-[2] h-screen w-screen left-0 transform bg-white bg-[radial-gradient(60%_120%_at_50%_50%,hsla(0,0%,100%,0)_0,rgba(252,205,238,.5)_100%)]">
-          <ul className="flex flex-col justify-center  items-center absolute top-0 left-0 w-full h-screen  text-gray-800">
+          <ul className="flex flex-col justify-center   items-center absolute top-0 left-0 w-full h-screen  text-gray-800">
             {links.map(({ id, link, title }) => (
               <li
                 key={id}
-                className="px-4 cursor-pointer  capitalize py-6 font-medium mb-2 text-3xl"
+                className="px-4 cursor-pointer  capitalize py-6 font-medium gap-3 text-3xl"
               >
                 <Link onClick={() => setNav(!nav)} href={link}>
                   {title}
@@ -94,26 +103,18 @@ const Navbar = () => {
             ))}
             {!isAuthenticated ? (
           <LoginLink>
-            <button
-              type="button"
-              className="text-white bg-[#ef233c] focus:outline-none focus:ring-4  font-medium rounded-full text-sm px-5 py-2.5 text-center "
-            >
-              Sign in
-            </button>
+           <Button text={"Sign in"}/>
           </LoginLink>
         ) : (
-            <LogoutLink>
-            <button
-              type="button"
-              className="text-white bg-[#ef233c] focus:outline-none focus:ring-4  font-medium rounded-full text-sm px-5 py-2.5 text-center "
-            >
-              Sign out
-            </button>
+            <LogoutLink className="flex justify-center w-full">
+            <Button  text={"Sign out"}/>
           </LogoutLink>
         )}
           </ul>
         </div>
       )}
+      
+            
     </nav>
   );
 };

@@ -6,7 +6,7 @@ import { CgMail } from "react-icons/cg";
 
 const Footer = () => {
   return (
-<footer className="bg-white border-t pt-4 mt-10 text-gray-900">
+<footer id='contact' className="bg-white border-t pt-4 mt-10 text-gray-900">
     <div className="mx-auto w-full max-w-screen  ">
         <div className="md:flex px-6 flex flex-wrap justify-center flex-col md:flex-row items-center md:justify-between ">
           <div className="mb-6 md:mb-0 mr-14 sm:mr-0 ">
@@ -20,7 +20,7 @@ const Footer = () => {
                   <h2 className="mb-6 text-sm font-bold  uppercase ">Services</h2>
                   <ul className="  font-medium">
                       <li className="mb-4">
-                          <Link href={"/beADonors"} className="hover:underline">Be a Donor</Link>
+                          <Link href={"/beADonor"} className="hover:underline">Be a Donor</Link>
                       </li>
                       <li>
                           <Link href={"/searchForDonors"} className="hover:underline">Look for Donors</Link>

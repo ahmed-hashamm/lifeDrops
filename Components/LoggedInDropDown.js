@@ -1,50 +1,97 @@
 "use client";
-import React from 'react'
-import { useState } from 'react';
-import { LogoutLink } from '@kinde-oss/kinde-auth-nextjs';
-import Link from 'next/link';
-const LoggedInDropDown = ({email,Name,src}) => {
-    const [isOpen, setIsOpen] = useState(false)
-    const handleBlur=()=>{
-        setTimeout(() => {
-          setIsOpen(false)
-        }, 100)
-      }
+import React from "react";
+import { useState } from "react";
+import { LogoutLink,useKindeBrowserClient } from "@kinde-oss/kinde-auth-nextjs";
 
-      return (
-        <div className='relative transition duration-1000 ease-in-out'  >
-          <button  onBlur={handleBlur} onClick={() => setIsOpen(!isOpen)} className="block h-12 w-12 rounded-full overflow-hidden focus:outline-none">
-            <img className="h-full w-full object-cover block" src={src} alt="avatar"/>
-          </button>
-    <div  className={`relative ${isOpen? 'block' : 'hidden'}`}>
+import ProfileLoader from "./ProfileLoader";
 
-          <div className="absolute right-0 w-52 mt-2 py-2 bg-white border rounded shadow-xl ">
-            <span className='text-xs font-semibold px-4'>Signed in as :</span>
-            <p href="#" className="transition-colors duration-200 block px-4 py-2 text-normal text-gray-900 rounded hover:bg-[#ef233c] hover:text-white text-xs font-medium">{email}</p>
-            <div >
-              <p href="#" className="transition-colors duration-200 block px-4 py-2 text-normal text-gray-900 rounded hover:bg-[#ef233c] text-[15px] hover:text-white">{Name}</p>
-              <div className="">
-                <hr></hr>
-              </div>
-              <Link href={"/beADonor"} className="transition-colors duration-200 block px-4 py-2 text-normal text-gray-900 rounded hover:bg-[#ef233c] text-[15px] hover:text-white">Be a Donor</Link>
-              <div className="">
-                <hr></hr>
-              </div>
-              <LogoutLink>
-                <button onClick={() => setIsOpen(false)} href="#" className="transition-colors duration-200 block px-4 py-2 w-full text-normal font-medium text-gray-900 rounded hover:bg-[#ef233c] hover:text-white">
-                  Logout
-                </button>
-              </LogoutLink>
-            </div>
-          </div>
-        </div>
-    </div>
-      )
-    }
-    
+import Link from "next/link";
 
-    
-   
+import { useRouter } from "next/navigation";
+
+const LoggedInDropDown = ({ email, Name, src, lastName }) => {
+  
+  const [isOpen, setIsOpen] = useState(false);
+  const { isLoading } = useKindeBrowserClient();
+  const handleBlur = () => {
+    setTimeout(() => {
+      setIsOpen(false);
+    }, 100);
+  };
+
+  if (isLoading) return <ProfileLoader/>;
  
 
-export default LoggedInDropDown
+  const toggleDropdown = () => {
+    setIsOpen(!isOpen);
+  };
+  
+
+  return (
+    <div
+    
+    className="relative inline-block text-left z-50">
+
+      <button
+      
+        onClick={toggleDropdown}
+        
+        type="button"
+        className="inline-flex items-center justify-center w-56 px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm hover:bg-gray-50 focus:outline-none "
+      >
+        <img
+        
+          src={src}
+          alt="Profile Picture"
+          className="w-6 h-6 rounded-full mr-2"
+        />
+        Logged in as {Name}
+      </button>
+
+      {isOpen && (
+        <div 
+        onBlur={handleBlur}
+       
+        className="absolute right-0 w-56 mt-2 origin-top-right bg-white border border-gray-200 divide-y divide-gray-100 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+          <div  className="py-1">
+            <p
+             
+              className="block px-4 py-2 text-[11px] font-medium text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
+            >
+              {email}
+            </p>
+            <p
+            
+              className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
+            >
+              {Name} {lastName}
+            </p>
+            <Link
+            onClick={toggleDropdown}
+            className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900" href="/beADonor" passHref>
+              
+                Be a Donor
+             
+            </Link>
+            <Link
+            
+            onClick={toggleDropdown}
+            className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900" href="/searchForDonors" passHref>
+              
+                Look for Donors
+              
+            </Link>
+          </div>
+         <LogoutLink>
+
+         
+             <button    className="block px-4 py-2 text-sm text-[#ef233c] hover:text-white hover:bg-[#ef233c] rounded-sm w-full" role="menuitem">Sign out</button>
+        
+         </LogoutLink>
+     </div>
+      )}
+    </div>
+  );
+};
+
+export default LoggedInDropDown;
