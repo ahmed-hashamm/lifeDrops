@@ -25,9 +25,9 @@ const BeADonorPage = () => {
         institute: formData.get("institute"),
       });
       if(reponse.status === "OK") {
-          toast.success("Your request has been submitted successfully")
+          toast.success("Your data has been submitted successfully")
           router.push("/")
-        console.log("Your request has been submitted successfully");
+        console.log("There was an error, please try again");
         
       }
       else {
