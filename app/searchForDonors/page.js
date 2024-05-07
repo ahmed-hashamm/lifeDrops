@@ -57,13 +57,7 @@ const page = () => {
           </h1>
           <p className="italic font-medium">“Every drop matters. Be a hero.”</p>
         </div>
-          {/* <div  >
           
-          <Button text="I'm a Donor" />
-          </div>
-          <Link href={"/searchForDonors"}>
-          <Button text="I'm a Recipient" />
-        </Link> */}
         <div className="options rounded-xl  ring-2 p-3 ring-[#ef233c]">
            <select className="border-white rounded-xl bg-white   focus:bg-white  outline-white focus:outline-none " value={bloodGroup} onChange={handleBloodGroupChange}>
             <option disabled value="">Select Blood Group</option>
