@@ -5,11 +5,11 @@ import { mainLogo } from "../images";
 import InputField from "@/Components/inputField";
 // import { handleSubmit } from "@/submitPost/handleSubmit";
 import { toast } from "sonner";
-import { submitPost } from "@/submitPost/action";
+// import { submitPost } from "@/actions/saveAction";
 import {  useRouter } from "next/navigation";
 import { useKindeBrowserClient } from "@kinde-oss/kinde-auth-nextjs";
 import FormValidator from "@/Components/FormValidator";
-
+import { submitPost } from "@/actions/saveAction";
 const BeADonorPage = () => {
     const { isAuthenticated } = useKindeBrowserClient();
     const router = useRouter()
@@ -21,7 +21,7 @@ const BeADonorPage = () => {
         bloodGroup: formData.get("bloodGroup"),
         firstName: formData.get("firstName"),
         lastName: formData.get("lastName"),
-        phNo: formData.get("number"),
+        phone: formData.get("number"),
         institute: formData.get("institute"),
       });
       if(reponse.status === "OK") {
@@ -119,7 +119,7 @@ return (
             </div>
             <div className="relative  w-full mb-5 group">
               <InputField
-              Min={5}
+              Min={4}
               Max={20}
                 Name={"institute"}
                 labelText={"Institute(optional)"}
