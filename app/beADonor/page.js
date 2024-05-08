@@ -1,14 +1,12 @@
 'use client';
 import Image from "next/image";
-import React,{useState} from "react";
-import { mainLogo } from "../images";
+import FormValidator from "@/Components/FormValidator";
 import InputField from "@/Components/inputField";
-// import { handleSubmit } from "@/submitPost/handleSubmit";
+import Button from "@/Components/Button";
+import { mainLogo } from "../images";
 import { toast } from "sonner";
-// import { submitPost } from "@/actions/saveAction";
 import {  useRouter } from "next/navigation";
 import { useKindeBrowserClient } from "@kinde-oss/kinde-auth-nextjs";
-import FormValidator from "@/Components/FormValidator";
 import { submitPost } from "@/actions/saveAction";
 const BeADonorPage = () => {
     const { isAuthenticated } = useKindeBrowserClient();
@@ -26,13 +24,13 @@ const BeADonorPage = () => {
       });
       if(reponse.status === "OK") {
           toast.success("Your data has been submitted successfully")
-          router.push("/")
+          router.push("/searchForDonors")
         console.log("There was an error, please try again");
         
       }
       else {
           toast.error("There was an error submitting your data, please try again")
-        toast.error("Something went wrong");
+        
       }
       
     } catch (error) {
@@ -127,13 +125,14 @@ return (
               />
             </div>
           </div>
-          <button
+          {/* <button
             type="submit"
             
             className="text-white bg-[#ef233c] hover:bg-[#dc3a4d] focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center  hover:scale-105 transition-all duration-500"
           >
             Submit
-          </button>
+          </button> */}
+          <Button  type={"submit"} text={"Submit"}/>
         </form> :
         <FormValidator/>
         }
