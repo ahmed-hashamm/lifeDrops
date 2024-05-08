@@ -42,7 +42,7 @@ const BeADonorPage = () => {
 // }
 return (
 
-    <section className="md:flex justify-around items-center p-8 min-h-screen">
+    <section className=" flex flex-col md:flex-row gap-y-10 md:justify-around items-center p-8 min-h-screen bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px]">
       <section className="left">
         <section className="hero flex flex-col gap-6 justify-center items-center  p-8    ">
           <div className="logo  rounded-full  bg-white shadow-lg">

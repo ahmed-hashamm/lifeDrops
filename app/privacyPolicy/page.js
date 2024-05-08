@@ -5,7 +5,7 @@ const PrivacyPolicy = () => {
   return (
     <section className=" h-full w-full bg-white bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px] p-14 space-y-4">
 
-      <h1 className="text-5xl text-center tracking-tight font-bold ">Privacy Policy</h1>
+      <h1 className="text-4xl text-center tracking-tight font-bold ">Privacy Policy</h1>
     <div className=" p-10 lg:px-48 lg:py-10 space-y-8 ">
       <p >
         At Life Drops, we are committed to protecting your privacy and ensuring that your personal information is secure. This privacy policy explains how we collect, use, and disclose your personal information when you use our website.

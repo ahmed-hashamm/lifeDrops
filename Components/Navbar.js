@@ -37,6 +37,29 @@ const Navbar = () => {
         link: "#contact",
       },
   ];
+  const mobileLinks = [
+    {
+      id: 1,
+      title: "home",
+      link: "/",
+    },
+
+    {
+      id: 2,
+      title: "Find Donors",
+      link: "/searchForDonors",
+    },
+    {
+      id: 3,
+      title: "Be a Donor",
+      link: "/beADonor",
+    },
+    {
+        id: 4,
+        title: "Contact",
+        link: "#contact",
+      },
+  ];
 
   return (
     <nav className="flex justify-between items-center w-full h-16 px-4 bg-white border-b shadow-md nav">
@@ -90,26 +113,30 @@ const Navbar = () => {
 
       {nav && (
         <div className="absolute top-0 z-[2] h-screen w-screen left-0 transform bg-white bg-[radial-gradient(60%_120%_at_50%_50%,hsla(0,0%,100%,0)_0,rgba(252,205,238,.5)_100%)]">
-          <ul className="flex flex-col justify-center   items-center absolute top-0 left-0 w-full h-screen  text-gray-800">
-            {links.map(({ id, link, title }) => (
+          <ul className="flex flex-col justify-center  gap-3 items-center absolute top-0 left-0 w-full h-screen  text-gray-800">
+            {mobileLinks.map(({ id, link, title }) => (
               <li
                 key={id}
-                className="px-4 cursor-pointer  capitalize py-6 font-medium gap-3 text-3xl"
+                className="px-4 cursor-pointer  capitalize py-6 font-medium  text-3xl"
               >
                 <Link onClick={() => setNav(!nav)} href={link}>
                   {title}
                 </Link>
               </li>
             ))}
+            
+
+          
             {!isAuthenticated ? (
           <LoginLink>
            <Button text={"Sign in"}/>
           </LoginLink>
         ) : (
-            <LogoutLink className="flex justify-center w-full">
+            <LogoutLink >
             <Button  text={"Sign out"}/>
           </LogoutLink>
         )}
+           
           </ul>
         </div>
       )}

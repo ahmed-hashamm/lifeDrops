@@ -50,7 +50,7 @@ const page = () => {
   };
   if (Error) return <ErrorPage />;
   return (
-    <section className="min-h-screen space-y-8  p-14">
+    <section className="min-h-screen space-y-8  p-14 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px]">
       <section className="hero flex flex-col gap-6 justify-center items-center w-full p-8  min-h-[60vh] z-99   ">
         <div className="logo  rounded-full  bg-white shadow-lg">
           <Image src={mainLogo} alt="logo" width={200} height={200} />
