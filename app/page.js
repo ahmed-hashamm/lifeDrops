@@ -14,8 +14,8 @@ export default function Home() {
     isAuthenticated ? router.push("/beADonor") : router.push("api/auth/login");
   };
   return (
-    <main className=" inset-0  h-full w-full bg-white bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px] py-10 p-4 ">
-      <section className="hero flex flex-col gap-6 justify-center items-center w-full p-8  min-h-[80vh] z-99   ">
+    <main className=" inset-0  h-full w-full bg-white bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px]  py-10 p-4 ">
+      <section className="hero flex flex-col gap-6 justify-center items-center w-full p-8  min-h-[40vh] z-99   ">
         <div className="logo  rounded-full  bg-white shadow-lg">
           <Image src={mainLogo} alt="logo" width={200} height={200} />
         </div>
@@ -35,7 +35,7 @@ export default function Home() {
           </Link>
         </div>
       </section>
-      <section className="about w-full  lg:mt-0 px-6 md:px-24">
+      <section className="about w-full   lg:mt-0 px-6 md:px-24">
         <div className="bg-[#ef233c] text-white w-full px-8 shadow-sm py-10 rounded-3xl ">
           <div className="container  flex flex-col md:flex-row justify-between items-center">
             {/* Text Section */}

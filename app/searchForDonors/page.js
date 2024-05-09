@@ -35,6 +35,7 @@ const page = () => {
   }, [getPosts]);
 
   const handleBloodGroupChange = (val) => {
+    setLoading(true)
     const selectedBloodGroup = val;
     setBloodGroup(selectedBloodGroup);
     if (selectedBloodGroup === "All") {
@@ -47,6 +48,7 @@ const page = () => {
     } else {
       setFilteredPosts(posts); // If no blood group is selected, show all posts
     }
+    setLoading(false)
   };
   
   
@@ -144,7 +146,3 @@ const page = () => {
 };
 
 export default page;
-export const metadata = {
-  title: "Search for Donors - Find a Match with Life Drops",
-  description: "Find a blood donor in your area. Search for donors by location, blood type, and other criteria. Make a difference today!",
-};

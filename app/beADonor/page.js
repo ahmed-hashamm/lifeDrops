@@ -10,7 +10,7 @@ import { useKindeBrowserClient } from "@kinde-oss/kinde-auth-nextjs";
 import { submitPost } from "@/actions/saveAction";
 
 
-const BeADonorPage = () => {
+const page = () => {
     const { isAuthenticated } = useKindeBrowserClient();
     const router = useRouter()
   const handleSubmit = async (formData) => {
@@ -44,7 +44,7 @@ const BeADonorPage = () => {
 // }
 return (
 
-    <section className=" flex flex-col md:flex-row gap-y-10 md:justify-around items-center p-8 min-h-screen bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px]">
+    <section className=" flex flex-col md:flex-row gap-y-10 md:justify-around items-center md:p-8 min-h-screen bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px]">
       <section className="left">
         <section className="hero flex flex-col gap-6 justify-center items-center  p-8    ">
           <div className="logo  rounded-full  bg-white shadow-lg">
@@ -62,9 +62,9 @@ return (
         </section>
       </section>
 
-      <section className="form ">
+      <section className="form w-full md:w-auto flex justify-center p-8 md:p-0">
       {isAuthenticated ?
-        <form action={handleSubmit } className="max-w-md mx-auto">
+        <form action={handleSubmit } className="w-full md:max-w-md md:mx-auto ">
            
           <div className="relative  w-full mb-5 group">
             <InputField
@@ -78,7 +78,7 @@ return (
           <div className="relative  w-full mb-5 group">
             <InputField Name={"email"} labelText={"Email"} type={"email"} />
           </div>
-          <div className="relative  w-full mb-5 group">
+          <div className="relative w-full mb-5 group">
             <InputField
             Min={11}
             Max={11}
@@ -143,8 +143,4 @@ return (
   );
 };
 
-export default BeADonorPage;
-export const metadata = {
-  title: "Be A Donor - Save Lives with Life Drops",
-  description: "Join the Life Drops community and become a blood donor. Your donation can make a difference in someone's life. Sign up now!",
-};
+export default page;
