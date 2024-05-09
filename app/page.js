@@ -28,10 +28,10 @@ export default function Home() {
         </div>
         <div className="buttons flex gap-4">
           <div onClick={handleClick}>
-            <Button text="I'm a Donor" />
+            <Button text={`I am a Donor`} />
           </div>
           <Link href={"/searchForDonors"}>
-            <Button text="I'm a Recipient" />
+            <Button text="I am a Recipient" />
           </Link>
         </div>
       </section>

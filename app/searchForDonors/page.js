@@ -8,7 +8,7 @@ import { mainLogo } from "../images";
 import Image from "next/image";
 import LoadingSkeleton from "@/Components/LoadingSkeleton";
 import ErrorPage from "@/Components/ErrorPage";
-const page = () => {
+const SearchPage = () => {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [bloodGroup, setBloodGroup] = useState("");
@@ -145,4 +145,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default SearchPage;

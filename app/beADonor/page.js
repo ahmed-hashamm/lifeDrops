@@ -10,7 +10,7 @@ import { useKindeBrowserClient } from "@kinde-oss/kinde-auth-nextjs";
 import { submitPost } from "@/actions/saveAction";
 
 
-const page = () => {
+const DonorPage = () => {
     const { isAuthenticated } = useKindeBrowserClient();
     const router = useRouter()
   const handleSubmit = async (formData) => {
@@ -143,4 +143,4 @@ return (
   );
 };
 
-export default page;
+export default DonorPage;

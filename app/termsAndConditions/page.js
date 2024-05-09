@@ -10,13 +10,13 @@ const TermsAndConditions = () => {
       <div className='flex gap-2 items-center'>
 
       <div >
-        Welcome to Life Drops! These terms and conditions outline the rules and regulations for the use of Save a Life's website, located at 
+        Welcome to Life Drops! These terms and conditions outline the rules and regulations for the use of Life Drops website, located at 
       <a href="" className='text-blue-700 ml-2 hover:underline'>link</a>
       </div>
       </div>
       <h2 className="text-xl font-bold mb-2">1. Terms</h2>
       <p>
-        By accessing this website, we assume you accept these terms and conditions in full. Do not continue to use Save a Life's website if you do not accept all of the terms and conditions stated on this page.
+        By accessing this website, we assume you accept these terms and conditions in full. Do not continue to use Life Drops website if you do not accept all of the terms and conditions stated on this page.
       </ p>
       <h2 className="text-xl font-bold mb-2">2. Use of Website</h2>
       <p>
