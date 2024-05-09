@@ -32,7 +32,7 @@ const SearchPage = () => {
 
     fetchingData();
     setLoading(false);
-  }, [getPosts]);
+  }, [donors]);
 // {filtration based on blood group selected by user}
   const handleBloodGroupChange = (val) => {
     setLoading(true)
