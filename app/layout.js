@@ -3,7 +3,6 @@ import "./globals.css";
 import Navbar from "@/Components/Navbar";
 import Footer from "@/Components/Footer";
 import { Toaster } from "./toastImport";
-import { logo } from "./images";
 
 
 const inter = Inter({ subsets: ["latin"] });
@@ -16,14 +15,14 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+        <Navbar/>
       <body className={inter.className}>
         
-        <Navbar/>
         {children}
         <Toaster richColors position="bottom-center" />
-        <Footer/>
         
         </body>
+        <Footer/>
     </html>
   );
 }
