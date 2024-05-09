@@ -62,7 +62,7 @@ const SearchPage = () => {
         </div>
         <div className="hero-content text-center space-y-4">
           <h1>
-            <span className="text-[#ef233c] font-bold">Save a Life ,</span>{" "}
+            <span className="text-[#ef233c] font-bold">Life Drops ,</span>{" "}
             Connecting Blood Donors and Recipients
           </h1>
           <p className="italic font-medium">“Every drop matters. Be a hero.”</p>

@@ -2,14 +2,9 @@
 import Image from "next/image";
 import { mainLogo, aboutImg } from "./images";
 import Button from "@/Components/Button";
-import { useKindeBrowserClient } from "@kinde-oss/kinde-auth-nextjs";
-import { useRouter } from "next/navigation";
 import Link from "next/link";
 
 export default function Home() {
-  const router = useRouter();
-  const { isAuthenticated } = useKindeBrowserClient();
-  // {push user to login page if user is not authenticated}
  
   return (
     <main className=" inset-0  h-full w-full bg-white bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px]  py-10 p-4 ">
@@ -19,7 +14,7 @@ export default function Home() {
         </div>
         <div className="hero-content text-center space-y-4">
           <h1>
-            <span className="text-[#ef233c] font-bold">Save a Life ,</span>{" "}
+            <span className="text-[#ef233c] font-bold">Life Drops,</span>{" "}
             Connecting Blood Donors and Recipients
           </h1>
           <p className="italic font-medium">“Every drop matters. Be a hero.”</p>
@@ -43,9 +38,9 @@ export default function Home() {
               </h2>
               <p className="text-lg">
                 Welcome to Life Drops! Our mission is simple: bridge the gap
-                between blood donors and those in need. Whether you're urgently
+                between blood donors and those in need. Whether you&apos;re urgently
                 seeking blood or ready to donate, our community stands united.
-                Here's how it works:
+                Here&apos;s how it works:
               </p>
               <ul className="list-disc pl-6 mt-4 text-[16px]">
                 <li>Search for specific blood groups</li>
