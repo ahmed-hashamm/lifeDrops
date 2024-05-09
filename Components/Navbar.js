@@ -12,7 +12,7 @@ import Button from "./Button";
 
 const Navbar = () => {
   const [nav, setNav] = useState(false);
-  const { isAuthenticated, isLoading,user } = useKindeBrowserClient();
+  const { isAuthenticated, user } = useKindeBrowserClient();
  
   const links = [
     {
@@ -21,16 +21,6 @@ const Navbar = () => {
       link: "/",
     },
 
-    // {
-    //   id: 2,
-    //   title: "find",
-    //   link: "/searchForDonors",
-    // },
-    // {
-    //   id: 3,
-    //   title: "Donate",
-    //   link: "/beADonor",
-    // },
     {
         id: 4,
         title: "Contact",
@@ -104,6 +94,7 @@ const Navbar = () => {
         onClick={() => setNav(!nav)}
         className="cursor-pointer pr-4 z-10 text-gray-500 md:hidden"
       >
+        {/* {mobile nav} */}
         {nav ? (
           <FaTimes size={30} className="text-[#ef233c]" />
         ) : (
