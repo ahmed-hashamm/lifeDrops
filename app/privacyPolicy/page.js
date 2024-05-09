@@ -62,3 +62,7 @@ const PrivacyPolicy = () => {
 };
 
 export default PrivacyPolicy;
+export const metadata = {
+  title: "Privacy Policy - Life Drops",
+  description: "Protecting your privacy is important to us. Read our privacy policy to learn how we collect, use, and protect your personal information.",
+};

@@ -21,7 +21,7 @@ const page = () => {
       try {
         const data = await getPosts();
         const donors = data.data;
-
+        
         setPosts(donors);
         setFilteredPosts(donors); // Set filteredPosts to all posts initially
       } catch (error) {
@@ -48,7 +48,10 @@ const page = () => {
       setFilteredPosts(posts); // If no blood group is selected, show all posts
     }
   };
+  
+  
   if (Error) return <ErrorPage />;
+  
   return (
     <section className="min-h-screen space-y-8  p-14 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px]">
       <section className="hero flex flex-col gap-6 justify-center items-center w-full p-8  min-h-[60vh] z-99   ">
@@ -141,3 +144,7 @@ const page = () => {
 };
 
 export default page;
+export const metadata = {
+  title: "Search for Donors - Find a Match with Life Drops",
+  description: "Find a blood donor in your area. Search for donors by location, blood type, and other criteria. Make a difference today!",
+};

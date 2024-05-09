@@ -58,3 +58,7 @@ const TermsAndConditions = () => {
 };
 
 export default TermsAndConditions;
+export const metadata = {
+  title: "Terms and Conditions - Life Drops",
+  description: "Read our terms and conditions to learn about the rules and regulations that govern the use of our website and services.",
+};

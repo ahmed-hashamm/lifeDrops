@@ -8,6 +8,8 @@ import { toast } from "sonner";
 import {  useRouter } from "next/navigation";
 import { useKindeBrowserClient } from "@kinde-oss/kinde-auth-nextjs";
 import { submitPost } from "@/actions/saveAction";
+
+
 const BeADonorPage = () => {
     const { isAuthenticated } = useKindeBrowserClient();
     const router = useRouter()
@@ -142,3 +144,7 @@ return (
 };
 
 export default BeADonorPage;
+export const metadata = {
+  title: "Be A Donor - Save Lives with Life Drops",
+  description: "Join the Life Drops community and become a blood donor. Your donation can make a difference in someone's life. Sign up now!",
+};
