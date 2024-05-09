@@ -54,7 +54,7 @@ const Navbar = () => {
   return (
     <nav className="flex justify-between items-center w-full h-16 px-4 bg-white border-b shadow-md nav">
       <div>
-        <Link href={"/"} className="flex justify-center items-center max-w-16 ">
+        <Link href={"/"} className="flex justify-center items-center z-50 max-w-16 ">
           <Image
             src={logo}
             alt="Logo"
@@ -65,7 +65,7 @@ const Navbar = () => {
         </Link>
       </div>
 
-      <ul className="hidden md:flex md:items-center">
+      <ul className="hidden sm:flex sm:items-center">
         {links.map(({ id, link, title }) => (
           <li
             key={id}
@@ -92,7 +92,7 @@ const Navbar = () => {
 
       <div
         onClick={() => setNav(!nav)}
-        className="cursor-pointer pr-4 z-10 text-gray-500 md:hidden"
+        className="cursor-pointer pr-4 z-10 text-gray-500 sm:hidden"
       >
         {/* {mobile nav} */}
         {nav ? (

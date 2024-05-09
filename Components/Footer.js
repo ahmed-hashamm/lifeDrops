@@ -8,7 +8,7 @@ const Footer = () => {
   return (
 <footer id='contact' className="bg-white border-t pt-4 mt-10 text-gray-900">
     <div className="mx-auto w-full max-w-screen  ">
-        <div className="md:flex px-6 flex flex-wrap justify-center flex-col md:flex-row items-center md:justify-between ">
+        <div className="sm:flex px-6 flex flex-wrap justify-center flex-col md:flex-row items-center md:justify-between ">
           <div className="mb-6 md:mb-0 mr-14 sm:mr-0 ">
               <Link href={"/"} >
                   <Image src={mainLogo} width={150} height={120} alt="Life Drops Logo" />

@@ -21,10 +21,10 @@ export default function Home() {
         </div>
         <div className="buttons flex gap-4">
           <Link href={"beADonor"}>
-            <Button text={`I'm a Donor`} />
+            <Button type={"button"} text={`I'm a Donor`} />
           </Link>
           <Link href={"/searchForDonors"}>
-            <Button text="I'm a Recipient" />
+            <Button type={"button"} text="I'm a Recipient" />
           </Link>
         </div>
       </section>
