@@ -8,6 +8,7 @@ import { mainLogo } from "../images";
 import Image from "next/image";
 import LoadingSkeleton from "@/Components/LoadingSkeleton";
 import ErrorPage from "@/Components/ErrorPage";
+// {search for donors page}
 const SearchPage = () => {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -15,25 +16,24 @@ const SearchPage = () => {
   const [filteredPosts, setFilteredPosts] = useState([]);
   const [Error, setError] = useState(false);
   useEffect(() => {
-    const handleSubmit = async () => {
+    const fetchingData = async () => {
       setError(false);
       setLoading(true);
       try {
         const data = await getPosts();
         const donors = data.data;
-        
         setPosts(donors);
         setFilteredPosts(donors); // Set filteredPosts to all posts initially
       } catch (error) {
         setError(true);
-        console.log(error);
+       
       }
     };
 
-    handleSubmit();
+    fetchingData();
     setLoading(false);
   }, [getPosts]);
-
+// {filtration based on blood group selected by user}
   const handleBloodGroupChange = (val) => {
     setLoading(true)
     const selectedBloodGroup = val;
@@ -67,6 +67,7 @@ const SearchPage = () => {
           </h1>
           <p className="italic font-medium">“Every drop matters. Be a hero.”</p>
         </div>
+        {/* {select dropdown for filtration} */}
         <div className="w-72 mt-6">
           <Select
             value={bloodGroup}
@@ -85,7 +86,7 @@ const SearchPage = () => {
           </Select>
         </div>
       </section>
-
+{/* {show loading cards until data is fetched from database} */}
       {loading ? (
         <LoadingSkeleton />
       ) : (
@@ -93,7 +94,7 @@ const SearchPage = () => {
           {filteredPosts.map((post) => {
             const date = new Date(post.date);
             const day = date.getDate();
-            const month = date.getMonth();
+            const month = date.getMonth() + 1;
             const year = date.getFullYear();
             const fullDate = day + "/" + month + "/" + year;
             return (

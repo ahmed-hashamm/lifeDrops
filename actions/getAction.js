@@ -1,7 +1,7 @@
 "use server";
 import connect from "@/dbConfig/db"
 import Post from "@/models/post"
-
+// getting data from the database
 export const  getPosts= async()=>{
     try {
         await connect();

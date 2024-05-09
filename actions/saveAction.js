@@ -4,7 +4,7 @@ import connect from "@/dbConfig/db"
 import Post from "@/models/post"
 
 
-
+// saving posts into the database
 export const  submitPost= async(data)=>{
     try {
         await connect();

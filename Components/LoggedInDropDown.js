@@ -10,25 +10,21 @@ import ProfileLoader from "./ProfileLoader";
 
 import Link from "next/link";
 
-import { useRouter } from "next/navigation";
-
+// {dropdown menu to show user profile when user is logged in}
 const LoggedInDropDown = ({ email, Name, src, lastName }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const { isLoading,isAuthenticated } = useKindeBrowserClient();
+  const { isLoading, isAuthenticated } = useKindeBrowserClient();
   const handleBlur = () => {
     setTimeout(() => {
       setIsOpen(false);
     }, 700);
   };
 
- 
-
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
   };
 
-  if (isLoading)
-  return <ProfileLoader/>
+  if (isLoading) return <ProfileLoader />;
 
   return (
     <div className="relative inline-block text-left z-50 transition-all duration-700 ease-out">
@@ -46,7 +42,8 @@ const LoggedInDropDown = ({ email, Name, src, lastName }) => {
       </button>
 
       {isOpen && (
-        <div onMouseLeave={handleBlur}
+        <div
+          onMouseLeave={handleBlur}
           // onBlur={handleBlur}
 
           className="absolute right-0 w-56 mt-2 origin-top-right bg-white border border-gray-200 divide-y divide-gray-100 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
@@ -86,9 +83,7 @@ const LoggedInDropDown = ({ email, Name, src, lastName }) => {
         </div>
       )}
     </div>
-
-     
-  )
+  );
 };
 
 export default LoggedInDropDown;

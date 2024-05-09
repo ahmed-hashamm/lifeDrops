@@ -9,10 +9,8 @@ import Link from "next/link";
 export default function Home() {
   const router = useRouter();
   const { isAuthenticated } = useKindeBrowserClient();
-  const handleClick = () => {
-    console.log("helo");
-    isAuthenticated ? router.push("/beADonor") : router.push("api/auth/login");
-  };
+  // {push user to login page if user is not authenticated}
+ 
   return (
     <main className=" inset-0  h-full w-full bg-white bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px]  py-10 p-4 ">
       <section className="hero flex flex-col gap-6 justify-center items-center w-full p-8  min-h-[40vh] z-99   ">
@@ -27,11 +25,11 @@ export default function Home() {
           <p className="italic font-medium">“Every drop matters. Be a hero.”</p>
         </div>
         <div className="buttons flex gap-4">
-          <div onClick={handleClick}>
-            <Button text={`I am a Donor`} />
-          </div>
+          <Link href={"beADonor"}>
+            <Button text={`I'm a Donor`} />
+          </Link>
           <Link href={"/searchForDonors"}>
-            <Button text="I am a Recipient" />
+            <Button text="I'm a Recipient" />
           </Link>
         </div>
       </section>

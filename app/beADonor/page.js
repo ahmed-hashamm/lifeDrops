@@ -11,14 +11,16 @@ import { submitPost } from "@/actions/saveAction";
 
 
 const DonorPage = () => {
+  //authentication import
     const { isAuthenticated } = useKindeBrowserClient();
     const router = useRouter()
+    //form submit function
   const handleSubmit = async (formData) => {
     try {
       const reponse = await submitPost({
         location: formData.get("location"),
         email: formData.get("email"),
-        bloodGroup: formData.get("bloodGroup"),
+        bloodGroup: formData.get("bloodGroup").toUpperCase(),
         firstName: formData.get("firstName"),
         lastName: formData.get("lastName"),
         phone: formData.get("number"),
@@ -39,11 +41,8 @@ const DonorPage = () => {
       console.log(error);
     }
   };
-// const handleToast=()=>{
-//     {status === 'OK'? toast.success("Your request has been submitted successfully") : toast.error("Erorr") }
-// }
 return (
-
+//hero section
     <section className=" flex flex-col md:flex-row gap-y-10 md:justify-around items-center md:p-8 min-h-screen bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px]">
       <section className="left">
         <section className="hero flex flex-col gap-6 justify-center items-center  p-8    ">
@@ -61,7 +60,7 @@ return (
           </div>
         </section>
       </section>
-
+{/* {form section , show login card if user is not authenticated} */}
       <section className="form w-full md:w-auto flex justify-center p-8 md:p-0">
       {isAuthenticated ?
         <form action={handleSubmit } className="w-full md:max-w-md md:mx-auto ">
@@ -127,13 +126,6 @@ return (
               />
             </div>
           </div>
-          {/* <button
-            type="submit"
-            
-            className="text-white bg-[#ef233c] hover:bg-[#dc3a4d] focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center  hover:scale-105 transition-all duration-500"
-          >
-            Submit
-          </button> */}
           <Button  type={"submit"} text={"Submit"}/>
         </form> :
         <FormValidator/>
