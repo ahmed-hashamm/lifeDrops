@@ -29,7 +29,7 @@ const DonorPage = () => {
       if(reponse.status === "OK") {
           toast.success("Your data has been submitted successfully")
           router.push("/searchForDonors")
-        console.log("There was an error, please try again");
+        
         
       }
       else {
