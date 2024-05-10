@@ -4,7 +4,7 @@ import { BiDonateBlood } from "react-icons/bi";
 import { Select, Option } from "@material-tailwind/react";
 import React, { useEffect, useState } from "react";
 import { mainLogo } from "../images";
-
+import NoPostMessage from "@/Components/NoPostMessage";
 import Image from "next/image";
 import LoadingSkeleton from "@/Components/LoadingSkeleton";
 import ErrorPage from "@/Components/ErrorPage";
@@ -26,16 +26,15 @@ const SearchPage = () => {
         setFilteredPosts(donors); // Set filteredPosts to all posts initially
       } catch (error) {
         setError(true);
-       
       }
     };
 
     fetchingData();
     setLoading(false);
   }, []);
-// {filtration based on blood group selected by user}
+  // {filtration based on blood group selected by user}
   const handleBloodGroupChange = (val) => {
-    setLoading(true)
+    setLoading(true);
     const selectedBloodGroup = val;
     setBloodGroup(selectedBloodGroup);
     if (selectedBloodGroup === "All") {
@@ -48,12 +47,11 @@ const SearchPage = () => {
     } else {
       setFilteredPosts(posts); // If no blood group is selected, show all posts
     }
-    setLoading(false)
+    setLoading(false);
   };
-  
-  
+
   if (Error) return <ErrorPage />;
-  
+
   return (
     <section className="min-h-screen space-y-8  p-10 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px]">
       <section className="hero flex flex-col gap-6 justify-center items-center w-full p-8  min-h-[60vh] z-99   ">
@@ -86,10 +84,14 @@ const SearchPage = () => {
           </Select>
         </div>
       </section>
-{/* {show loading cards until data is fetched from database} */}
+      {/* {show loading cards until data is fetched from database} */}
+
+      {filteredPosts.length ===0 && !loading  && <NoPostMessage/>}
+
       {loading ? (
         <LoadingSkeleton />
       ) : (
+        
         <section className="posts flex gap-12 flex-wrap justify-center">
           {filteredPosts.map((post) => {
             const date = new Date(post.date);
@@ -97,12 +99,13 @@ const SearchPage = () => {
             const month = date.getMonth() + 1;
             const year = date.getFullYear();
             const fullDate = day + "/" + month + "/" + year;
+
+            
             return (
               <div
                 key={post._id}
                 className="card  w-80 rounded-3xl shadow-md  "
               >
-                
                 <div className="h-12 w-full rounded-t-3xl flex justify-between items-center p-6 bg-[#ef233c]">
                   <BiDonateBlood
                     className="rounded-full p-1 bg-white text-[#ef233c]"
@@ -130,7 +133,7 @@ const SearchPage = () => {
                     <div className="space-y-1">
                       <p className="font-bold">
                         Contact :{" "}
-                        <span className="font-medium">{post.phone}</span>
+                        <span className="font-medium">0{post.phone}</span>
                       </p>
 
                       <p className=" text-sm">{post.email}</p>

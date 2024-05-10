@@ -7,7 +7,6 @@ export const  getPosts= async()=>{
         await connect();
         const data = await Post.find({});
         const posts = JSON.parse(JSON.stringify(data));
-        console.log(posts)
         return {status : "OK", message : "Posts retrieved successfully", data : posts}
     } catch (error) {
         console.error(error);

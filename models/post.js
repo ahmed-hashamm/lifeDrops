@@ -5,7 +5,10 @@ const postSchema = new mongoose.Schema ({
     bloodGroup:String,
     firstName:String,
     lastName:String,
-    phone:Number,
+    phone:{
+        type:Number,
+        length:11,
+    },
     institute:String,
     date:{
         type : Date,
