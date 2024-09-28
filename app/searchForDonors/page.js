@@ -4,7 +4,6 @@ import { BiDonateBlood } from "react-icons/bi";
 import { Select, Option } from "@material-tailwind/react";
 import React, { useEffect, useState } from "react";
 import { mainLogo } from "../images";
-import NoPostMessage from "@/Components/NoPostMessage";
 import Image from "next/image";
 import LoadingSkeleton from "@/Components/LoadingSkeleton";
 import ErrorPage from "@/Components/ErrorPage";
@@ -85,23 +84,15 @@ const SearchPage = () => {
         </div>
       </section>
       {/* {show loading cards until data is fetched from database} */}
-
-      {filteredPosts.length ===0 && !loading  && <NoPostMessage/>}
-
-      {loading ? (
-        <LoadingSkeleton />
-      ) : (
-        
-        <section className="posts flex gap-12 flex-wrap justify-center">
-          {filteredPosts.map((post) => {
-            const date = new Date(post.date);
-            const day = date.getDate();
-            const month = date.getMonth() + 1;
-            const year = date.getFullYear();
-            const fullDate = day + "/" + month + "/" + year;
-
-            
-            return (
+      {!loading ? (
+      <section className="posts flex gap-12 flex-wrap justify-center">
+        {filteredPosts.map((post) => {
+          const date = new Date(post.date);
+          const day = date.getDate();
+          const month = date.getMonth() + 1;
+          const year = date.getFullYear();
+          const fullDate = day + "/" + month + "/" + year;
+          return(
               <div
                 key={post._id}
                 className="card  w-80 rounded-3xl shadow-md  "
@@ -141,10 +132,10 @@ const SearchPage = () => {
                   </div>
                 </div>{" "}
               </div>
-            );
-          })}
-        </section>
-      )}
+            ) 
+          }
+        )}
+      </section>) : <div className="w-full"><LoadingSkeleton/></div> }
     </section>
   );
 };
